@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git en équipe : Workflow et bonnes pratiques — Blog Stephan Doreal</title>
+    <meta name="description" content="Maîtrisez les workflows Git professionnels : branches, merge requests, conventions de commits pour un travail d'équipe efficace.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .article-container { max-width: 800px; margin: 0 auto; padding: 120px 24px 60px; }
+        .article-back { display: inline-flex; align-items: center; gap: 6px; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 32px; text-decoration: none; transition: color 0.3s; }
+        .article-back:hover { color: var(--accent); }
+        .article-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+        .article-tag { padding: 4px 14px; background: var(--accent-light); color: var(--accent); border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+        .article-date { color: var(--text-muted); font-size: 0.9rem; }
+        .article-title { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 20px; line-height: 1.2; }
+        .article-intro { font-size: 1.15rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 40px; border-left: 3px solid var(--accent); padding-left: 20px; }
+        .article-body h2 { font-family: 'Inter', sans-serif; font-size: 1.5rem; margin: 40px 0 16px; color: var(--text-primary); }
+        .article-body h3 { font-family: 'Inter', sans-serif; font-size: 1.2rem; margin: 28px 0 12px; color: var(--text-primary); }
+        .article-body p { font-size: 1.05rem; line-height: 1.9; margin-bottom: 16px; color: var(--text-secondary); }
+        .article-body ul, .article-body ol { margin: 12px 0 20px 24px; color: var(--text-secondary); }
+        .article-body li { margin-bottom: 8px; font-size: 1.05rem; line-height: 1.7; }
+        .article-body strong { color: var(--text-primary); }
+        .article-body code { font-family: 'JetBrains Mono', monospace; background: var(--bg-tertiary); padding: 2px 8px; border-radius: 6px; font-size: 0.9rem; color: var(--accent); }
+        .article-body pre { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin: 20px 0; overflow-x: auto; }
+        .article-body pre code { background: transparent; padding: 0; color: var(--text-primary); font-size: 0.9rem; line-height: 1.7; }
+        .article-callout { background: var(--accent-light); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 12px; padding: 20px 24px; margin: 24px 0; }
+        .article-callout p { color: var(--text-primary); margin: 0; }
+        .article-callout strong { color: var(--accent); }
+        .article-footer { margin-top: 60px; padding-top: 32px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar scrolled" id="navbar">
+    <div class="container">
+        <a href="../index.html" class="nav-logo">S<span>.</span>Doreal</a>
+        <div class="nav-links" id="navLinks">
+            <a href="../index.html#hero">Accueil</a>
+            <a href="../index.html#about">À propos</a>
+            <a href="../index.html#skills">Compétences</a>
+            <a href="../index.html#projects">Projets</a>
+            <a href="../index.html#blog" class="active">Blog</a>
+            <a href="../index.html#contact">Contact</a>
+        </div>
+        <div class="nav-actions">
+            <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">
+                <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </button>
+            <div class="nav-hamburger" id="navHamburger"><span></span><span></span><span></span></div>
+        </div>
+    </div>
+</nav>
+
+<article class="article-container">
+    <a href="../index.html#blog" class="article-back">← Retour au blog</a>
+
+    <div class="article-meta">
+        <span class="article-tag">Tutoriel</span>
+        <span class="article-date">1 Mars 2026 · 6 min de lecture</span>
+    </div>
+
+    <h1 class="article-title">Git en équipe : Workflow et bonnes pratiques</h1>
+
+    <p class="article-intro">
+        Git est l'outil de gestion de versions incontournable pour tout développeur. 
+        Mais travailler en équipe avec Git demande de suivre certaines conventions 
+        et workflows pour éviter les conflits et garder un historique propre.
+    </p>
+
+    <div class="article-body">
+        <h2>🌿 Le Git Flow simplifié</h2>
+        <p>
+            Le <strong>Git Flow</strong> est un modèle de branching qui structure le développement. 
+            Voici une version simplifiée adaptée aux petites et moyennes équipes :
+        </p>
+        <ul>
+            <li><code>main</code> — Le code en production, toujours stable</li>
+            <li><code>develop</code> — La branche d'intégration des nouvelles fonctionnalités</li>
+            <li><code>feature/*</code> — Branches pour chaque fonctionnalité</li>
+            <li><code>hotfix/*</code> — Branches pour les corrections urgentes en production</li>
+        </ul>
+
+        <h2>🔀 Workflow pas à pas</h2>
+
+        <h3>1. Créer une branche de fonctionnalité</h3>
+        <p>Toujours partir de <code>develop</code> pour créer une nouvelle branche :</p>
+        <pre><code># Se placer sur develop
+git checkout develop
+git pull origin develop
+
+# Créer la branche feature
+git checkout -b feature/ajout-panier
+
+# Travailler et commiter
+git add .
+git commit -m "feat: ajout du système de panier"</code></pre>
+
+        <h3>2. Pousser et créer une Merge Request</h3>
+        <pre><code># Pousser la branche
+git push origin feature/ajout-panier
+
+# Sur GitLab/GitHub → Créer une Merge Request
+# vers la branche develop</code></pre>
+
+        <h3>3. Code Review et Merge</h3>
+        <p>
+            Un collègue (ou vous-même sur un projet personnel) revoit le code, 
+            suggère des modifications si nécessaires, puis approuve et fusionne 
+            dans <code>develop</code>.
+        </p>
+
+        <h3>4. Mise en production</h3>
+        <pre><code># Quand develop est stable, merger dans main
+git checkout main
+git merge develop
+git tag v1.2.0
+git push origin main --tags</code></pre>
+
+        <h2>📝 Conventions de commits</h2>
+        <p>
+            Des messages de commit clairs et structurés facilitent la compréhension 
+            de l'historique. Voici le format <strong>Conventional Commits</strong> :
+        </p>
+        <pre><code># Structure
+type(scope): description courte
+
+# Exemples
+feat(auth): ajout de l'authentification Google
+fix(panier): correction du calcul du total
+docs(readme): mise à jour des instructions d'installation
+style(css): correction de l'alignement du header
+refactor(user): simplification du modèle utilisateur
+test(api): ajout des tests unitaires pour les produits
+chore(deps): mise à jour de Laravel vers v11</code></pre>
+
+        <div class="article-callout">
+            <p>
+                <strong>💡 Règle d'or :</strong> Un commit = une modification logique. 
+                Évitez les commits « fourre-tout » comme <code>"correction de bugs"</code> ou 
+                <code>"modifications diverses"</code>. Soyez précis !
+            </p>
+        </div>
+
+        <h2>⚠️ Les erreurs courantes à éviter</h2>
+        <ol>
+            <li><strong>Ne jamais push sur main directement</strong> — Toujours passer par des branches et des merge requests</li>
+            <li><strong>Pull avant de push</strong> — Toujours récupérer les dernières modifications</li>
+            <li><strong>Ne pas ignorer les conflits</strong> — Résolvez-les soigneusement en comprenant les deux versions</li>
+            <li><strong>Commiter les fichiers sensibles</strong> — Ajoutez <code>.env</code>, <code>node_modules/</code> et <code>vendor/</code> dans le <code>.gitignore</code></li>
+            <li><strong>Faire des commits gigantesques</strong> — Préférez des petits commits fréquents</li>
+        </ol>
+
+        <h2>🛠️ Commandes utiles au quotidien</h2>
+        <pre><code># Voir l'état des fichiers
+git status
+
+# Voir l'historique avec graphique
+git log --oneline --graph --all
+
+# Annuler les modifications non commitées
+git checkout -- fichier.php
+
+# Mettre de côté du travail en cours
+git stash
+git stash pop
+
+# Rebaser sa branche sur develop
+git rebase develop
+
+# Voir les différences
+git diff
+
+# Cherry-pick un commit spécifique
+git cherry-pick abc123</code></pre>
+
+        <h2>🔧 Configuration recommandée</h2>
+        <pre><code># Configurer votre identité
+git config --global user.name "Stephan Doreal"
+git config --global user.email "ponmetetstephan@gmail.com"
+
+# Activer les couleurs
+git config --global color.ui auto
+
+# Définir VS Code comme éditeur par défaut
+git config --global core.editor "code --wait"
+
+# Alias utiles
+git config --global alias.st status
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.lg "log --oneline --graph --all"</code></pre>
+
+        <h2>📚 En résumé</h2>
+        <p>
+            Un bon workflow Git en équipe se résume à : <strong>branches claires</strong>, 
+            <strong>commits descriptifs</strong>, <strong>merge requests</strong> avec revue de code, 
+            et <strong>communication</strong> avec l'équipe. Ces pratiques vous feront 
+            gagner un temps précieux et éviteront bien des maux de tête ! 💪
+        </p>
+    </div>
+
+    <div class="article-footer">
+        <a href="laravel-premiers-pas.html" class="btn btn-secondary btn-sm">← Article précédent</a>
+        <a href="../index.html#blog" class="btn btn-primary btn-sm">Tous les articles</a>
+    </div>
+</article>
+
+<footer class="footer">
+    <div class="container">
+        <p class="footer-text">© 2026 <a href="../index.html">Stephan Doreal</a>. Conçu & développé avec ❤️ à Douala.</p>
+    </div>
+</footer>
+
+<script>
+    const themeToggle = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', saved);
+    themeToggle.addEventListener('click', () => {
+        const c = document.documentElement.getAttribute('data-theme');
+        const n = c === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', n);
+        localStorage.setItem('theme', n);
+    });
+    const ham = document.getElementById('navHamburger');
+    const links = document.getElementById('navLinks');
+    ham.addEventListener('click', () => { ham.classList.toggle('active'); links.classList.toggle('active'); });
+</script>
+</body>
+</html>

@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stephan Doreal — Développeur Web & DevOps</title>
+    <meta name="description"
+        content="Portfolio de Ponmetet Stephan Doreal — Développeur Web Full Stack et DevOps Junior basé à Douala, Cameroun. Spécialisé en Laravel, Vue.js, Docker et CI/CD.">
+    <meta name="keywords" content="développeur web, devops, cameroun, douala, laravel, vuejs, docker, portfolio">
+    <meta name="author" content="Ponmetet Stephan Doreal">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Stephan Doreal — Développeur Web & DevOps">
+    <meta property="og:description" content="Développeur Web Full Stack et DevOps Junior basé à Douala, Cameroun.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://stephan330.github.io">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+
+<body>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-spinner"></div>
+    </div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#hero" class="nav-logo">S<span>.</span>Doreal</a>
+
+            <div class="nav-links" id="navLinks">
+                <a href="#hero" class="active">Accueil</a>
+                <a href="#about">À propos</a>
+                <a href="#skills">Compétences</a>
+                <a href="#services">Services</a>
+                <a href="#projects">Projets</a>
+                <a href="#blog">Blog</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">
+                    <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                    <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5" />
+                        <line x1="12" y1="1" x2="12" y2="3" />
+                        <line x1="12" y1="21" x2="12" y2="23" />
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                        <line x1="1" y1="12" x2="3" y2="12" />
+                        <line x1="21" y1="12" x2="23" y2="12" />
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                    </svg>
+                </button>
+                <a href="#contact" class="btn btn-primary btn-sm">Me contacter</a>
+                <div class="nav-hamburger" id="navHamburger">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="hero">
+        <div class="hero-grid-bg"></div>
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
+
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="dot"></span>
+                    Disponible pour un emploi
+                </div>
+
+                <p class="hero-greeting">Bonjour, je suis</p>
+                <h1><span class="name-highlight">Stephan Doreal</span></h1>
+                <p class="hero-title-role" id="typingText"></p>
+
+                <p class="hero-description">
+                    Passionné par la création d'applications web modernes et le déploiement
+                    d'infrastructures fiables. Je conçois des solutions full stack et DevOps
+                    qui allient performance, sécurité et expérience utilisateur.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                        </svg>
+                        Voir mes projets
+                    </a>
+                    <a href="assets/cv/CV-Ponmetet-Stephan.html" download="CV-Ponmetet-Stephan.html"
+                        class="btn btn-secondary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                            <line x1="16" y1="13" x2="8" y2="13" />
+                            <line x1="16" y1="17" x2="8" y2="17" />
+                        </svg>
+                        Mon CV
+                    </a>
+                </div>
+
+                <div class="hero-socials">
+                    <a href="https://github.com/stephan330" target="_blank" aria-label="GitHub">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                        </svg>
+                    </a>
+                    <a href="https://gitlab.com/stephdev720" target="_blank" aria-label="GitLab">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/stephan-doreal" target="_blank" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                    </a>
+                    <a href="mailto:ponmetetstephan@gmail.com" aria-label="Email">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="4" width="20" height="16" rx="2" />
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                        </svg>
+                    </a>
+                    <a href="https://wa.me/237694138634" target="_blank" aria-label="WhatsApp">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-photo-wrapper">
+                <div class="hero-photo-ring">
+                    <div class="hero-photo">
+                        <img src="assets/img/photo.jpg" alt="Stephan Doreal">
+                    </div>
+                </div>
+                <div class="floating-badge" style="top: 20px; right: -10px;">⚡ DevOps</div>
+                <div class="floating-badge" style="bottom: 60px; left: -20px;">🚀 Laravel</div>
+                <div class="floating-badge" style="bottom: 20px; right: 0;">🐳 Docker</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section class="section section-alt" id="about">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>À propos de moi</h2>
+                <p>Mon parcours, ma passion et ce qui me motive chaque jour</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-image reveal">
+                    <img src="assets/img/photo.jpg" alt="Stephan Doreal au travail">
+                    <div class="about-image-decoration"></div>
+                </div>
+
+                <div class="about-text">
+                    <h3 class="reveal">Développeur Web & DevOps Junior</h3>
+                    <p class="reveal">
+                        Originaire de Bandja et basé à Douala, je suis un développeur passionné
+                        par les technologies web et l'univers DevOps. Mon parcours m'a conduit
+                        d'un Baccalauréat scientifique à un BTS en Génie Logiciel, en passant
+                        par des expériences concrètes en entreprise.
+                    </p>
+                    <p class="reveal">
+                        Aujourd'hui, en stage DevOps chez <strong>LAO SARL</strong>, je travaille
+                        sur la conteneurisation avec Docker, l'automatisation CI/CD et l'administration
+                        de systèmes Linux. En parallèle, je continue de perfectionner mes compétences
+                        en développement Full Stack avec Laravel et Vue.js.
+                    </p>
+                    <p class="reveal">
+                        Mon objectif : devenir un ingénieur polyvalent capable de concevoir,
+                        développer et déployer des applications robustes de bout en bout.
+                    </p>
+
+                    <div class="about-stats reveal">
+                        <div class="stat-card">
+                            <div class="stat-number" data-count="3">0</div>
+                            <div class="stat-label">Projets réalisés</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" data-count="2">0</div>
+                            <div class="stat-label">Stages pro</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" data-count="8">0</div>
+                            <div class="stat-label">Technologies</div>
+                        </div>
+                    </div>
+
+                    <a href="assets/cv/CV-Ponmetet-Stephan.html" download="CV-Ponmetet-Stephan.html"
+                        class="btn btn-gold reveal">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                            <polyline points="7 10 12 15 17 10" />
+                            <line x1="12" y1="15" x2="12" y2="3" />
+                        </svg>
+                        Télécharger mon CV
+                    </a>
+                </div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="timeline reveal" style="margin-top: 60px;">
+                <h3 style="text-align: center; margin-bottom: 32px;">Mon parcours</h3>
+
+                <div class="timeline-item reveal reveal-delay-1">
+                    <div class="timeline-date">2025 — Présent</div>
+                    <div class="timeline-title">Stagiaire DevOps — LAO SARL</div>
+                    <div class="timeline-subtitle">Docker, CI/CD, GitLab, Linux</div>
+                </div>
+
+                <div class="timeline-item reveal reveal-delay-2">
+                    <div class="timeline-date">Juillet — Septembre 2024</div>
+                    <div class="timeline-title">Stagiaire Développeur Web — ISETAG</div>
+                    <div class="timeline-subtitle">Laravel, PHP, MySQL, gestion de stock & locations</div>
+                </div>
+
+                <div class="timeline-item reveal reveal-delay-3">
+                    <div class="timeline-date">2023 — 2025</div>
+                    <div class="timeline-title">BTS Génie Logiciel — ISETAG</div>
+                    <div class="timeline-subtitle">Développement d'applications, bases de données, gestion de projets
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal reveal-delay-4">
+                    <div class="timeline-date">2020 — 2021</div>
+                    <div class="timeline-title">Baccalauréat Série C — Lycée Bilingue de Bandja</div>
+                    <div class="timeline-subtitle">Mathématiques et sciences physiques</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SKILLS SECTION ===== -->
+    <section class="section" id="skills">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Compétences</h2>
+                <p>Les technologies et outils que je maîtrise au quotidien</p>
+            </div>
+
+            <div class="skills-grid">
+                <!-- Frontend -->
+                <div class="card skill-category reveal">
+                    <div class="skill-category-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="16 18 22 12 16 6" />
+                            <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                    </div>
+                    <h3>Frontend</h3>
+
+                    <div class="skill-item">
+                        <div class="skill-item-header">
+                            <span class="skill-item-name">HTML5 / CSS3</span>
+                            <span class="skill-item-level">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" data-width="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-item-header">
+                            <span class="skill-item-name">JavaScript</span>
+                            <span class="skill-item-level">70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" data-width="70"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-item-header">
+                            <span class="skill-item-name">Vue.js</span>
+                            <span class="skill-item-level">60%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" data-width="60"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-item-header">
+                            <span class="skill-item-name">Bootstrap</span>
+                            <span class="skill-item-level">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" data-width="85"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend -->
+                <div class="card skill-category reveal reveal-delay-1">
+                    <div class="skill-category-icon"
+                        style="background: rgba(245, 158, 11, 0.15); color: var(--accent-gold);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
+                            <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
+                            <line x1="6" y1="6" x2="6.01" y2="6" />
+                            <line x1="6" y1="18" x2="6.01" y2="18" />
+                        </svg>
+                    </div>
+                    <h3>Backend</h3>
+
+                    <div class="skill-item">
+                        <div class="skill-item-header">
+                            <span class="skill-item-name">PHP</span>
+                            <span class="skill-item-level">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" data-width="80"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-item-header">
+                            <span class="skill-item-name">Laravel</span>
+                            <span class="skill-item-level">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" data-width="75"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-item-header">
+                            <span class="skill-item-name">Livewire</span>
+                            <span class="skill-item-level">60%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" data-width="60"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-item-header">
+                            <span class="skill-item-name">MySQL</span>
+                            <span class="skill-item-level">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" data-width="75"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DevOps -->
+                <div class="card skill-category reveal reveal-delay-2">
+                    <div class="skill-category-icon" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                            <path d="M2 17l10 5 10-5" />
+                            <path d="M2 12l10 5 10-5" />
+                        </svg>
+                    </div>
+                    <h3>DevOps</h3>
+
+                    <div class="skill-item">
+                        <div class="skill-item-header">
+                            <span class="skill-item-name">Docker</span>
+                            <span class="skill-item-level">65%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" data-width="65"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-item-header">
+                            <span class="skill-item-name">Git / GitHub / GitLab</span>
+                            <span class="skill-item-level">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" data-width="80"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-item-header">
+                            <span class="skill-item-name">Linux</span>
+                            <span class="skill-item-level">65%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" data-width="65"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-item-header">
+                            <span class="skill-item-name">CI/CD</span>
+                            <span class="skill-item-level">55%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" data-width="55"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Outils -->
+                <div class="card skill-category reveal reveal-delay-3">
+                    <div class="skill-category-icon" style="background: rgba(168, 85, 247, 0.15); color: #a855f7;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                        </svg>
+                    </div>
+                    <h3>Outils</h3>
+
+                    <div class="skill-item">
+                        <div class="skill-item-header">
+                            <span class="skill-item-name">VS Code</span>
+                            <span class="skill-item-level">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" data-width="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-item-header">
+                            <span class="skill-item-name">Terminal / Bash</span>
+                            <span class="skill-item-level">70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" data-width="70"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-item-header">
+                            <span class="skill-item-name">Postman</span>
+                            <span class="skill-item-level">60%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" data-width="60"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-item-header">
+                            <span class="skill-item-name">Figma</span>
+                            <span class="skill-item-level">40%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" data-width="40"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES SECTION ===== -->
+    <section class="section section-alt" id="services">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Mes Services</h2>
+                <p>Des prestations professionnelles adaptées à vos besoins</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Service 1 : Développement Web & Mobile -->
+                <div class="service-card reveal">
+                    <div class="service-icon">💻</div>
+                    <h3>Développement Web & Mobile</h3>
+                    <p>
+                        Conception et développement de sites web, applications web et mobiles
+                        sur mesure. Du portfolio simple à l'application complexe.
+                    </p>
+                    <div class="service-tags">
+                        <span class="service-tag">Sites vitrine</span>
+                        <span class="service-tag">Applications web</span>
+                        <span class="service-tag">Apps mobiles</span>
+                        <span class="service-tag">E-commerce</span>
+                    </div>
+                </div>
+
+                <!-- Service 2 : Installation Systèmes & Logiciels -->
+                <div class="service-card reveal reveal-delay-1">
+                    <div class="service-icon">🖥️</div>
+                    <h3>Installation Systèmes & Logiciels</h3>
+                    <p>
+                        Installation et configuration de systèmes d'exploitation (Windows, Linux),
+                        de suites bureautiques et logiciels professionnels.
+                    </p>
+                    <div class="service-tags">
+                        <span class="service-tag">Windows / Linux</span>
+                        <span class="service-tag">Suite Office</span>
+                        <span class="service-tag">Suite Adobe</span>
+                        <span class="service-tag">Pilotes & configs</span>
+                    </div>
+                </div>
+
+                <!-- Service 3 : Design Graphique -->
+                <div class="service-card reveal reveal-delay-2">
+                    <div class="service-icon">🎨</div>
+                    <h3>Design Graphique</h3>
+                    <p>
+                        Création de supports visuels professionnels : flyers, logos,
+                        cartes de visite, bannières et identité visuelle pour votre marque.
+                    </p>
+                    <div class="service-tags">
+                        <span class="service-tag">Flyers</span>
+                        <span class="service-tag">Logos</span>
+                        <span class="service-tag">Cartes de visite</span>
+                        <span class="service-tag">Identité visuelle</span>
+                    </div>
+                </div>
+
+                <!-- Service 4 : Formation Bureautique -->
+                <div class="service-card reveal">
+                    <div class="service-icon">📊</div>
+                    <h3>Formation Bureautique & WordPress</h3>
+                    <p>
+                        Formations personnalisées sur les outils Microsoft Office et la création
+                        de sites web avec WordPress. Du niveau débutant au niveau avancé.
+                    </p>
+                    <div class="service-tags">
+                        <span class="service-tag">Word</span>
+                        <span class="service-tag">Excel</span>
+                        <span class="service-tag">PowerPoint</span>
+                        <span class="service-tag">WordPress</span>
+                        <span class="service-tag">Tous niveaux</span>
+                    </div>
+                </div>
+
+                <!-- Service 5 : Cours particuliers -->
+                <div class="service-card reveal reveal-delay-1">
+                    <div class="service-icon">📚</div>
+                    <h3>Cours Particuliers & Répétitions</h3>
+                    <p>
+                        Répétitions en mathématiques, physique, chimie et informatique
+                        pour les élèves du secondaire (6ème à Terminale) et étudiants BTS (niveaux 1 & 2).
+                    </p>
+                    <div class="service-tags">
+                        <span class="service-tag">Maths</span>
+                        <span class="service-tag">Physique</span>
+                        <span class="service-tag">Chimie</span>
+                        <span class="service-tag">Informatique</span>
+                        <span class="service-tag">6ème – Tle & BTS</span>
+                    </div>
+                </div>
+
+                <!-- Service 6 : Projets de soutenance -->
+                <div class="service-card reveal reveal-delay-2">
+                    <div class="service-icon">🎓</div>
+                    <h3>Projets de Soutenance BTS</h3>
+                    <p>
+                        Accompagnement complet pour les étudiants BTS : conception,
+                        développement et rédaction de mémoires de soutenance.
+                    </p>
+                    <div class="service-tags">
+                        <span class="service-tag">Mémoire</span>
+                        <span class="service-tag">Développement</span>
+                        <span class="service-tag">Rédaction</span>
+                        <span class="service-tag">Présentation</span>
+                    </div>
+                </div>
+
+                <!-- Service 7 : Conseil & Accompagnement -->
+                <div class="service-card reveal">
+                    <div class="service-icon">💡</div>
+                    <h3>Conseil & Accompagnement Tech</h3>
+                    <p>
+                        Conseils personnalisés en choix de matériel, orientation technologique,
+                        stratégie digitale et accompagnement dans vos projets numériques.
+                    </p>
+                    <div class="service-tags">
+                        <span class="service-tag">Conseil IT</span>
+                        <span class="service-tag">Choix matériel</span>
+                        <span class="service-tag">Stratégie digitale</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="services-cta reveal">
+                <p>Vous avez un besoin spécifique ? Contactez-moi pour un devis personnalisé !</p>
+                <a href="#contact" class="btn btn-gold">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="22" y1="2" x2="11" y2="13" />
+                        <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                    </svg>
+                    Me contacter
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJECTS SECTION ===== -->
+    <section class="section" id="projects">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Mes Projets</h2>
+                <p>Des applications conçues avec passion pour résoudre des problèmes concrets</p>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Clean City -->
+                <div class="project-card reveal">
+                    <div class="project-image">
+                        <img src="assets/img/projects/cleancity.png" alt="Clean City App">
+                        <div class="project-image-overlay">
+                            <a href="#" class="btn btn-sm btn-primary">Voir le projet</a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-category">Application Mobile</div>
+                        <h3 class="project-title">Clean City</h3>
+                        <p class="project-description">
+                            Application mobile de géolocalisation des bacs à ordures pour promouvoir
+                            une ville plus propre. Utilise les API de cartographie pour localiser
+                            les points de collecte en temps réel.
+                        </p>
+                        <div class="project-tech-stack">
+                            <span class="badge">Mobile</span>
+                            <span class="badge">Géolocalisation</span>
+                            <span class="badge">API Maps</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/stephan330" target="_blank"
+                                class="project-link project-link-github">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                                </svg>
+                                🔒 Code privé
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gestion Scolarité -->
+                <div class="project-card reveal reveal-delay-1">
+                    <div class="project-image">
+                        <img src="assets/img/projects/gestion_scolarite.png" alt="Gestion Scolarité">
+                        <div class="project-image-overlay">
+                            <a href="#" class="btn btn-sm btn-primary">Voir le projet</a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-category">Application Web</div>
+                        <h3 class="project-title">Gestion Scolarité</h3>
+                        <p class="project-description">
+                            Application web complète de gestion de la scolarité d'un collège :
+                            inscription des élèves, saisie et calcul des notes, génération
+                            automatique des bulletins et suivi académique.
+                        </p>
+                        <div class="project-tech-stack">
+                            <span class="badge">Laravel</span>
+                            <span class="badge">MySQL</span>
+                            <span class="badge">Livewire</span>
+                            <span class="badge">Bootstrap</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/stephan330" target="_blank"
+                                class="project-link project-link-github">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                                </svg>
+                                🔒 Code privé
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- E-Commerce -->
+                <div class="project-card reveal reveal-delay-2">
+                    <div class="project-image">
+                        <img src="assets/img/projects/e-commerce.png" alt="Site E-Commerce">
+                        <div class="project-image-overlay">
+                            <a href="#" class="btn btn-sm btn-primary">Voir le projet</a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-category">Application Web</div>
+                        <h3 class="project-title">Site E-Commerce</h3>
+                        <p class="project-description">
+                            Plateforme e-commerce complète avec catalogue produits, système de panier,
+                            simulation de paiement, et tableau de bord d'administration
+                            pour la gestion des commandes et des utilisateurs.
+                        </p>
+                        <div class="project-tech-stack">
+                            <span class="badge">PHP</span>
+                            <span class="badge">JavaScript</span>
+                            <span class="badge">MySQL</span>
+                            <span class="badge">Bootstrap</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/stephan330" target="_blank"
+                                class="project-link project-link-github">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                                </svg>
+                                🔒 Code privé
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BLOG SECTION ===== -->
+    <section class="section" id="blog">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Blog</h2>
+                <p>Mes réflexions, tutoriels et retours d'expérience en développement</p>
+            </div>
+
+            <div class="blog-grid">
+                <!-- Article 1 -->
+                <a href="blog/docker-pour-debutants.html" class="blog-card reveal">
+                    <div class="blog-card-image">
+                        <div
+                            style="display:flex;align-items:center;justify-content:center;height:100%;font-size:3.5rem;background:linear-gradient(135deg,#1e293b,#0f172a);">
+                            🐳</div>
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-card-meta">
+                            <span class="blog-card-tag">DevOps</span>
+                            <span>9 Mars 2026</span>
+                            <span>5 min de lecture</span>
+                        </div>
+                        <h3 class="blog-card-title">Docker pour les débutants : Comprendre les conteneurs</h3>
+                        <p class="blog-card-excerpt">
+                            Découvrez les concepts fondamentaux de Docker et apprenez à créer,
+                            exécuter et gérer vos premiers conteneurs...
+                        </p>
+                        <div class="blog-card-footer">
+                            <span class="blog-read-more">Lire l'article →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Article 2 -->
+                <a href="blog/laravel-premiers-pas.html" class="blog-card reveal reveal-delay-1">
+                    <div class="blog-card-image">
+                        <div
+                            style="display:flex;align-items:center;justify-content:center;height:100%;font-size:3.5rem;background:linear-gradient(135deg,#1e293b,#0f172a);">
+                            ⚡</div>
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-card-meta">
+                            <span class="blog-card-tag">Web Dev</span>
+                            <span>5 Mars 2026</span>
+                            <span>7 min de lecture</span>
+                        </div>
+                        <h3 class="blog-card-title">Laravel : Pourquoi c'est le framework PHP idéal pour débuter</h3>
+                        <p class="blog-card-excerpt">
+                            Un guide complet pour comprendre pourquoi Laravel est devenu
+                            le framework PHP le plus populaire et comment bien démarrer...
+                        </p>
+                        <div class="blog-card-footer">
+                            <span class="blog-read-more">Lire l'article →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Article 3 -->
+                <a href="blog/git-workflow-equipe.html" class="blog-card reveal reveal-delay-2">
+                    <div class="blog-card-image">
+                        <div
+                            style="display:flex;align-items:center;justify-content:center;height:100%;font-size:3.5rem;background:linear-gradient(135deg,#1e293b,#0f172a);">
+                            🔀</div>
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-card-meta">
+                            <span class="blog-card-tag">Tutoriel</span>
+                            <span>1 Mars 2026</span>
+                            <span>6 min de lecture</span>
+                        </div>
+                        <h3 class="blog-card-title">Git en équipe : Workflow et bonnes pratiques</h3>
+                        <p class="blog-card-excerpt">
+                            Maîtrisez les workflows Git professionnels : branches, merge requests,
+                            et conventions de commits pour un travail d'équipe efficace...
+                        </p>
+                        <div class="blog-card-footer">
+                            <span class="blog-read-more">Lire l'article →</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section class="section section-alt" id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Me contacter</h2>
+                <p>Un projet en tête ? N'hésitez pas à me contacter pour en discuter</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="4" width="20" height="16" rx="2" />
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="contact-item-label">Email</div>
+                            <div class="contact-item-value">ponmetetstephan@gmail.com</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-item-icon"
+                            style="background: rgba(245, 158, 11, 0.15); color: var(--accent-gold);">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="contact-item-label">Téléphone</div>
+                            <div class="contact-item-value">+237 694 138 634</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-item-icon" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="contact-item-label">Localisation</div>
+                            <div class="contact-item-value">Douala, Cameroun</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-socials">
+                        <a href="https://github.com/stephan330" target="_blank" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                                <path
+                                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                            </svg>
+                        </a>
+                        <a href="https://gitlab.com/stephdev720" target="_blank" aria-label="GitLab">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                                <path
+                                    d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/stephan-doreal" target="_blank" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/237694138634" target="_blank" aria-label="WhatsApp">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <form class="contact-form reveal" id="contactForm" action="https://formspree.io/f/mvzwzvvw"
+                    method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nom complet</label>
+                            <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Sujet</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Sélectionner un sujet</option>
+                            <option value="emploi">Opportunité d'emploi</option>
+                            <option value="freelance">Projet freelance</option>
+                            <option value="collaboration">Collaboration</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Décrivez votre projet ou votre demande..."
+                            required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13" />
+                            <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                        </svg>
+                        Envoyer le message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">
+                © 2026 <a href="#hero">Stephan Doreal</a>. Conçu & développé avec ❤️ à Douala.
+            </p>
+            <div class="footer-links">
+                <a href="#about">À propos</a>
+                <a href="#services">Services</a>
+                <a href="#projects">Projets</a>
+                <a href="#blog">Blog</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="18 15 12 9 6 15" />
+        </svg>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

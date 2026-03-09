@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laravel : Le framework PHP idéal — Blog Stephan Doreal</title>
+    <meta name="description" content="Pourquoi Laravel est le framework PHP le plus populaire et comment bien débuter. Architecture MVC, Eloquent, Blade et bonnes pratiques.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .article-container { max-width: 800px; margin: 0 auto; padding: 120px 24px 60px; }
+        .article-back { display: inline-flex; align-items: center; gap: 6px; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 32px; text-decoration: none; transition: color 0.3s; }
+        .article-back:hover { color: var(--accent); }
+        .article-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+        .article-tag { padding: 4px 14px; background: var(--accent-light); color: var(--accent); border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+        .article-date { color: var(--text-muted); font-size: 0.9rem; }
+        .article-title { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 20px; line-height: 1.2; }
+        .article-intro { font-size: 1.15rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 40px; border-left: 3px solid var(--accent); padding-left: 20px; }
+        .article-body h2 { font-family: 'Inter', sans-serif; font-size: 1.5rem; margin: 40px 0 16px; color: var(--text-primary); }
+        .article-body h3 { font-family: 'Inter', sans-serif; font-size: 1.2rem; margin: 28px 0 12px; color: var(--text-primary); }
+        .article-body p { font-size: 1.05rem; line-height: 1.9; margin-bottom: 16px; color: var(--text-secondary); }
+        .article-body ul, .article-body ol { margin: 12px 0 20px 24px; color: var(--text-secondary); }
+        .article-body li { margin-bottom: 8px; font-size: 1.05rem; line-height: 1.7; }
+        .article-body strong { color: var(--text-primary); }
+        .article-body code { font-family: 'JetBrains Mono', monospace; background: var(--bg-tertiary); padding: 2px 8px; border-radius: 6px; font-size: 0.9rem; color: var(--accent); }
+        .article-body pre { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin: 20px 0; overflow-x: auto; }
+        .article-body pre code { background: transparent; padding: 0; color: var(--text-primary); font-size: 0.9rem; line-height: 1.7; }
+        .article-callout { background: var(--accent-light); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 12px; padding: 20px 24px; margin: 24px 0; }
+        .article-callout p { color: var(--text-primary); margin: 0; }
+        .article-callout strong { color: var(--accent); }
+        .article-footer { margin-top: 60px; padding-top: 32px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar scrolled" id="navbar">
+    <div class="container">
+        <a href="../index.html" class="nav-logo">S<span>.</span>Doreal</a>
+        <div class="nav-links" id="navLinks">
+            <a href="../index.html#hero">Accueil</a>
+            <a href="../index.html#about">À propos</a>
+            <a href="../index.html#skills">Compétences</a>
+            <a href="../index.html#projects">Projets</a>
+            <a href="../index.html#blog" class="active">Blog</a>
+            <a href="../index.html#contact">Contact</a>
+        </div>
+        <div class="nav-actions">
+            <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">
+                <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </button>
+            <div class="nav-hamburger" id="navHamburger"><span></span><span></span><span></span></div>
+        </div>
+    </div>
+</nav>
+
+<article class="article-container">
+    <a href="../index.html#blog" class="article-back">← Retour au blog</a>
+
+    <div class="article-meta">
+        <span class="article-tag">Web Dev</span>
+        <span class="article-date">5 Mars 2026 · 7 min de lecture</span>
+    </div>
+
+    <h1 class="article-title">Laravel : Pourquoi c'est le framework PHP idéal pour débuter</h1>
+
+    <p class="article-intro">
+        PHP reste l'un des langages les plus utilisés dans le développement web. 
+        Et parmi les frameworks PHP, Laravel s'est imposé comme le choix numéro 1 
+        des développeurs. Découvrez pourquoi et comment bien démarrer.
+    </p>
+
+    <div class="article-body">
+        <h2>🏗️ Qu'est-ce que Laravel ?</h2>
+        <p>
+            <strong>Laravel</strong> est un framework PHP open-source créé par Taylor Otwell en 2011. 
+            Il suit le pattern architectural <strong>MVC</strong> (Model-View-Controller) et propose 
+            une syntaxe élégante et expressive qui rend le développement web agréable.
+        </p>
+        <p>
+            En quelques chiffres, Laravel c'est :
+        </p>
+        <ul>
+            <li><strong>78 000+</strong> étoiles sur GitHub</li>
+            <li><strong>Le framework PHP #1</strong> en popularité</li>
+            <li>Une <strong>communauté massive</strong> avec des milliers de packages</li>
+            <li>Des mises à jour <strong>régulières et stables</strong></li>
+        </ul>
+
+        <h2>💎 Pourquoi choisir Laravel ?</h2>
+
+        <h3>1. Eloquent ORM — La magie des bases de données</h3>
+        <p>
+            Eloquent est l'ORM de Laravel qui permet d'interagir avec la base de données 
+            en utilisant des objets PHP au lieu d'écrire du SQL brut :
+        </p>
+        <pre><code>// Récupérer tous les utilisateurs actifs
+$users = User::where('active', true)
+             ->orderBy('name')
+             ->get();
+
+// Créer un nouvel utilisateur
+$user = User::create([
+    'name' => 'Stephan Doreal',
+    'email' => 'stephan@example.com',
+    'password' => Hash::make('secret')
+]);</code></pre>
+
+        <h3>2. Blade — Un moteur de template puissant</h3>
+        <p>
+            Blade est le système de templates de Laravel. Il offre une syntaxe claire 
+            et l'héritage de layouts :
+        </p>
+        <pre><code>{{-- resources/views/welcome.blade.php --}}
+@extends('layouts.app')
+
+@section('content')
+    &lt;h1&gt;Bienvenue, {{ $user->name }} !&lt;/h1&gt;
+
+    @if($user->isAdmin())
+        &lt;p&gt;Vous avez accès au tableau de bord.&lt;/p&gt;
+    @endif
+
+    @foreach($articles as $article)
+        &lt;div class="card"&gt;
+            &lt;h2&gt;{{ $article->title }}&lt;/h2&gt;
+            &lt;p&gt;{{ $article->excerpt }}&lt;/p&gt;
+        &lt;/div&gt;
+    @endforeach
+@endsection</code></pre>
+
+        <h3>3. Artisan — Votre assistant en ligne de commande</h3>
+        <p>
+            Artisan est l'interface en ligne de commande de Laravel qui automatise 
+            les tâches répétitives :
+        </p>
+        <pre><code># Créer un modèle avec migration et contrôleur
+php artisan make:model Article -mc
+
+# Exécuter les migrations
+php artisan migrate
+
+# Lancer le serveur de développement
+php artisan serve
+
+# Créer un middleware
+php artisan make:middleware CheckAge</code></pre>
+
+        <h3>4. Migrations — Versionnez votre base de données</h3>
+        <p>
+            Les migrations permettent de gérer la structure de votre base de données 
+            via du code PHP, comme un « Git pour votre BDD » :
+        </p>
+        <pre><code>// database/migrations/create_articles_table.php
+public function up()
+{
+    Schema::create('articles', function (Blueprint $table) {
+        $table->id();
+        $table->string('title');
+        $table->text('content');
+        $table->foreignId('user_id')->constrained();
+        $table->boolean('published')->default(false);
+        $table->timestamps();
+    });
+}</code></pre>
+
+        <div class="article-callout">
+            <p>
+                <strong>💡 Mon conseil :</strong> Commencez par un projet simple comme 
+                un blog ou une todo-list. C'est le meilleur moyen de maîtriser les bases 
+                de Laravel (routes, contrôleurs, modèles, vues) avant de passer à des 
+                projets plus complexes.
+            </p>
+        </div>
+
+        <h2>🚀 Démarrer un projet Laravel</h2>
+        <pre><code># Installer Composer (si pas déjà fait)
+sudo apt install composer
+
+# Créer un nouveau projet Laravel
+composer create-project laravel/laravel mon-projet
+
+# Aller dans le dossier
+cd mon-projet
+
+# Lancer le serveur
+php artisan serve
+# → Accessible sur http://localhost:8000</code></pre>
+
+        <h2>🔧 L'écosystème Laravel</h2>
+        <p>Laravel dispose d'un écosystème riche :</p>
+        <ul>
+            <li><strong>Livewire</strong> — Composants dynamiques sans JavaScript</li>
+            <li><strong>Inertia.js</strong> — SPA avec Vue.js/React sans API</li>
+            <li><strong>Sanctum</strong> — Authentification API simple</li>
+            <li><strong>Horizon</strong> — Monitoring des queues Redis</li>
+            <li><strong>Forge</strong> — Déploiement automatisé sur serveurs</li>
+        </ul>
+
+        <h2>📚 Ressources pour apprendre</h2>
+        <ul>
+            <li><a href="https://laravel.com/docs" target="_blank">Documentation officielle</a> — Excellente et complète</li>
+            <li><a href="https://laracasts.com" target="_blank">Laracasts</a> — Tutoriels vidéo de référence</li>
+            <li><strong>Projets personnels</strong> — Le meilleur apprentissage reste la pratique !</li>
+        </ul>
+    </div>
+
+    <div class="article-footer">
+        <a href="docker-pour-debutants.html" class="btn btn-secondary btn-sm">← Article précédent</a>
+        <a href="git-workflow-equipe.html" class="btn btn-primary btn-sm">Article suivant →</a>
+    </div>
+</article>
+
+<footer class="footer">
+    <div class="container">
+        <p class="footer-text">© 2026 <a href="../index.html">Stephan Doreal</a>. Conçu & développé avec ❤️ à Douala.</p>
+    </div>
+</footer>
+
+<script>
+    const themeToggle = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', saved);
+    themeToggle.addEventListener('click', () => {
+        const c = document.documentElement.getAttribute('data-theme');
+        const n = c === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', n);
+        localStorage.setItem('theme', n);
+    });
+    const ham = document.getElementById('navHamburger');
+    const links = document.getElementById('navLinks');
+    ham.addEventListener('click', () => { ham.classList.toggle('active'); links.classList.toggle('active'); });
+</script>
+</body>
+</html>
